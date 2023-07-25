@@ -9,7 +9,7 @@ ARG NODE_VERSION=16.16.0
 FROM node:${NODE_VERSION}-alpine
 
 # Use production node environment by default.
-ENV NODE_ENV development
+ENV NODE_ENV production
 
 
 WORKDIR /app
