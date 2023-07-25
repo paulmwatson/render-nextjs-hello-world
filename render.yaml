@@ -18,3 +18,12 @@ services:
           type: redis
           name: private redis
           property: connectionString
+      - key: DATABASE_URL
+        fromService:
+          type: postgres
+          name: private postgres
+          property: connectionString
+  - type: postgres
+    name: private postgres
+    ipAllowList: []
+    plan: free
