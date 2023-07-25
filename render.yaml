@@ -8,7 +8,7 @@ services:
     env: node
     plan: free
     buildCommand: yarn; yarn build
-    startCommand: yarn start
+    startCommand: yarn migrate; yarn start
     autoDeploy: false
     envVars:
       - key: NODE_ENV
@@ -19,8 +19,7 @@ services:
           name: private redis
           property: connectionString
       - key: DATABASE_URL
-        fromService:
-          type: postgres
+        fromDatabase:
           name: private postgres
           property: connectionString
   - type: postgres
