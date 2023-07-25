@@ -1,14 +1,14 @@
 import Link from "next/link";
 import Redis from "ioredis";
 
-const Index = ({data}) => (
+const Index = ({ data }) => (
   <div>
     Hello World.{" "}
-    <Link href="/about">
-      <a>About</a>
+    <Link href="https://render.com" rel="noopener noreferrer">
+      <a>Visit Render</a>
     </Link>
     <p>
-      <b>Redis:</b> {data}
+      <b>Redis Counter:</b> {data}
     </p>
   </div>
 );
@@ -17,6 +17,6 @@ export default Index;
 export async function getServerSideProps() {
   let redis = new Redis(process.env.REDIS_URL);
   const data = await redis.incr("counter");
-  redis.quit()
-  return { props: { data } }
+  redis.quit();
+  return { props: { data } };
 }
