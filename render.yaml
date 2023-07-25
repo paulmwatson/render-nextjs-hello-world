@@ -13,9 +13,8 @@ services:
     envVars:
       - key: NODE_ENV
         value: production
-    key: REDIS_URL
-    fromService:
-      type: redis
-      name: private redis
-      property: connectionString
-    
+      - key: REDIS_URL
+        fromService:
+          type: redis
+          name: private redis
+          property: connectionString
